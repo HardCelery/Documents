@@ -1,0 +1,125 @@
+# Gitの使い方
+Gitはファイルの変更履歴を管理する仕組み
+リポジトリという容器にファイルを格納しバージョン管理を行う
+
+<br>
+
+## 基本用語
+①リポジトリ
+・ローカルリポジトリ：ローカル端末にあるリポジトリ
+・リモートリポジトリ：githubなどのインターネット上のリポジトリ
+
+②変更操作
+・add：リポジトリに変更を記録する前にステージにまとめる
+・commit：リポジトリに変更を記録
+・push：リモートリポジトリにアップロード
+
+<br>
+
+## 基本的な流れ
+
+作業ディレクトリ （F:\Projects\Project01）
+↓
+ステージングエリア（git add）
+↓
+ローカルリポジトリ（git commit）
+↓
+リモートリポジトリ（git push）
+という流れで変更を記録。
+
+
+<br>
+
+
+## リモートリポジトリとの連携
+### ssh接続の設定
+ホームディレクトリに.sshを作成し、鍵の作成
+```
+ssh-keygen -t rsa
+```
+
+ssh鍵のファイル名をデフォルトから変更した場合、.ssh/configの設定も変更する
+＊デフォルトだと読みに行くファイル名が違うため
+```
+Host github github.com
+  HostName github.com
+  IdentityFile ~/.ssh/id_git_rsa #ここに自分の鍵のファイル名
+  User git
+```
+
+ssh接続確認
+```
+ssh -T github
+```
+
+
+
+<br>
+
+## 初期設定
+
+ローカルのGitにGitHubのユーザーメイとメールアドレスを設定
+```
+git config --global user.name 'user_name' # user_nameにはGitHubに登録したuser nameを入力
+
+git config --global user.email 'user@gmail.com' # user@gmail.comにはGitHubに登録したメールアドレス
+```
+ホームディレクトリ直下の.gitconfigに記録される
+
+<br>
+
+リモートリポジトリの設定（初期設定）
+```git
+git remote add origin git@github.com:[github_username]/[remoterepositoryname].git
+```
+originというショートカットにリモートリポジトリのURLを登録
+
+<br>
+
+## 基本コマンド
+**gitリポジトリの作成**
+```git
+cd /d F:\Projects\Projectxx
+git init
+```
+基本的にプロジェクトごとに用意する
+
+<br>
+
+**ステージング、コミット**
+リポジトリに反映（保存）
+```git
+git add ファイル名（or フォルダ名）
+git add .　（カレントディレクトリの全て）
+
+git commit -m "コメント"
+```
+<br>
+
+**リモートリポジトリにpush**
+pushするブランチを指定してoriginにpush
+```
+git push -u origin main
+```
+
+---
+
+## ブランチについて
+
+**ブランチ作成**
+```
+git branch new_branch
+git branch -a  #ブランチ確認
+```
+
+**ブランチ切り替え**
+```
+git checkout new_branch
+```
+
+**マージ**
+mainにcheckoutする
+```
+git merge new_branch
+```
+
