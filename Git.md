@@ -68,11 +68,7 @@ git config --global user.email 'user@gmail.com' # user@gmail.comにはGitHubに�
 
 <br>
 
-リモートリポジトリの設定（初期設定）
-```git
-git remote add origin git@github.com:[github_username]/[remoterepositoryname].git
-```
-originというショートカットにリモートリポジトリのURLを登録
+
 
 <br>
 
@@ -96,6 +92,15 @@ git commit -m "コメント"
 ```
 <br>
 
+リモートリポジトリの設定
+git initごとにリモートリポジトリを設定する
+```git
+git remote add origin git@github.com:[github_username]/[remoterepositoryname].git
+```
+originというショートカットにリモートリポジトリのURLを登録
+
+<br>
+
 **リモートリポジトリにpush**
 pushするブランチを指定してoriginにpush
 ```
@@ -116,6 +121,12 @@ git branch -a  #ブランチ確認
 ```
 git checkout new_branch
 ```
+
+**ブランチ名変更**
+```
+git branch -m master main
+```
+
 
 **マージ**
 mainにcheckoutする
