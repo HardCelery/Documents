@@ -127,7 +127,7 @@ git checkout new_branch
 ```
 
 **ブランチ名変更**
-```
+``` 
 git branch -m master main
 ```
 
@@ -151,3 +151,27 @@ git reset
 ## リモートリポジトリのマージ
 リモートリポジトリ（Github）のマージにはpull requestが必要
 pull requestを確認することでリモートリポジトリ上のマージが行える。
+
+
+## Git作業フロー
+developブランチで開発を行い、mainブランチにマージするのが基本
+それぞれのブランチもGithubにpushする。
+mainにマージする前、developで開発を始める前にpullで最新状態にする
+```git
+# 通常作業
+git checkout develop
+git add .
+git commit -m "comment"
+git push -u origin develop
+
+# リリース（mainへ反映）
+git checkout main
+git pull origin main
+git merge develop
+git push -u origin main
+
+# developを最新化
+git checkout develop
+git merge main
+git push -u origin develop
+```
