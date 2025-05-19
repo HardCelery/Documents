@@ -157,6 +157,7 @@ pull requestを確認することでリモートリポジトリ上のマージ�
 developブランチで開発を行い、mainブランチにマージするのが基本
 それぞれのブランチもGithubにpushする。
 mainにマージする前、developで開発を始める前にpullで最新状態にする
+必ずmain以外をコミットしてからpull requestでマージしましょう
 ```git
 # 通常作業
 git checkout develop
