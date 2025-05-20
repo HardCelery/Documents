@@ -151,7 +151,7 @@ git reset
 ## リモートリポジトリのマージ
 リモートリポジトリ（Github）のマージにはpull requestが必要
 pull requestを確認することでリモートリポジトリ上のマージが行える。
-
+ 
 
 ## Git作業フロー
 developブランチで開発を行い、mainブランチにマージするのが基本
@@ -176,3 +176,18 @@ git checkout develop
 git merge main
 git push -u origin develop
 ```
+<br>
+
+## 別端末からリモートリポジトリに接続
+### リポジトリをクローン
+```git
+git clone git@github.com:xxxx/xxxx.git
+```
+これを実行するとgithub上のデフォルトのブランチがクローンされる。
+
+### featureブランチを作成、クローンし切り替える
+```git
+git checkout -b feature origin/feature
+```
+`-b`は「新しいブランチを作成する」
+`checkout`で自動切り替え
