@@ -133,8 +133,8 @@ git branch -m master main
 
 
 **マージ**
-mainにcheckoutする
 ```
+git checkout main
 git merge new_branch
 ```
 
