@@ -120,6 +120,11 @@ git branch new_branch
 git branch -a  #ブランチ確認
 ```
 
+**ブランチ削除**
+```
+git branch -d new_branch
+```
+
 **ブランチ切り替え**
 ```
 git checkout new_branch
