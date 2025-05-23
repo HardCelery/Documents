@@ -4,6 +4,7 @@ Gitはファイルの変更履歴を管理する仕組み
 
 <br>
 
+
 ## 基本用語
 ①リポジトリ
 ・ローカルリポジトリ：ローカル端末にあるリポジトリ
@@ -35,10 +36,11 @@ Gitはファイルの変更履歴を管理する仕組み
 ### ssh接続の設定
 ホームディレクトリに.sshを作成し、鍵の作成
 ```
-ssh-keygen -t rsa
+ssh-keygen -t rsa -f github
 ```
+`-t`で作成方式、`-f`でファイル名を指定
 
-ssh鍵のファイル名をデフォルトから変更した場合、.ssh/configの設定も変更する
+ssh鍵のファイル名をデフォルトから変更した場合、.ssh/configを作成し、記録
 ＊デフォルトだと読みに行くファイル名が違うため
 ```
 Host github github.com
@@ -46,19 +48,16 @@ Host github github.com
   IdentityFile ~/.ssh/id_git_rsa #ここに自分の鍵のファイル名
   User git
 ```
-
-ssh接続確認
+公開鍵をgithubに登録してssh接続確認
 ```
 ssh -T github
 ```
-
-
 
 <br>
 
 ## 初期設定
 
-ローカルのGitにGitHubのユーザーメイとメールアドレスを設定
+ローカルのGitにGitHubのユーザーとメールアドレスを設定
 ```
 git config --global user.name 'user_name' # user_nameにはGitHubに登録したuser nameを入力
 
