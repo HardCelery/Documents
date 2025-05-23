@@ -41,6 +41,7 @@ F:\Projects
 
 ---
 
+仮想環境は必要なら作成
 **プロジェクトルートにて仮想環境の構築**
 ```python
 python -m venv .env   #隠しファイル
