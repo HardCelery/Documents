@@ -46,16 +46,33 @@ F:\Projects
 ```python
 python -m venv .env   #隠しファイル
 ```
+**仮想環境起動**
+```
+source .env/Scripts/activate
+```
 
 **ライブラリインストール**
 ```python
 pip install xxx
+```
+他の端末に環境を復元する場合
+**requirementsからインストール**
+```python
+cd /docs/ # requirementsの格納フォルダ
+pip install -r requirements.txt
 ```
 
 **パッケージ一覧をrequirementsに抽出**
 ```python
 pip freeze > requirements.txt
 ```
+
+**仮想環境停止**
+```phthon
+deactivate
+```
+
+---
 
 **コード作成後にsrcフォルダ内のコードとrequirementsをsite-packagesにコピー**
 ```powershell
@@ -64,7 +81,10 @@ copy .env\requirements.txt .\docs
 copy .\src\*.py .\.env\Lib\site-packages\
 ```
 
+<br>
+
 **compress.ps1でzip化**
+7-zipがインストールされている環境で実行
 ```ps1:compress
 
 $SevenZIP = "C:\Program Files\7-zip\7z.exe"
