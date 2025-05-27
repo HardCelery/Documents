@@ -189,6 +189,12 @@ git clone git@github.com:xxxx/xxxx.git
 ```
 これを実行するとgithub上のデフォルトのブランチがクローンされる。
 
+### リモートリポジトリをpull
+リモートリポジトリから最新情報を取得する
+```
+git pull origin main # リモートリポジトリのmainからpull
+```
+
 ### featureブランチを作成、クローンし切り替える
 ```git
 git checkout -b feature origin/feature
