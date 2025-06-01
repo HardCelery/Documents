@@ -78,7 +78,7 @@ deactivate
 ```powershell
 cd F:\Projects\xxxx
 copy .env\requirements.txt .\docs
-copy .\src\*.py .\.env\Lib\site-packages\
+copy src\*.py .\.env\Lib\site-packages\
 ```
 
 <br>
