@@ -147,9 +147,18 @@ gitのリセットは.gitフォルダを削除すればよい
 ```
 rm -rf .git
 ```
-ステージングの取り消し
+ステージングの取り消し（addの取り消し）
 ```
 git reset
+```
+プロジェクト全体を過去のコミットに戻したいとき
+```git
+git reset --hard commithash
+```
+ファイル単体だけ戻したいとき
+```git
+git checkout HEAD^ path/file
+# HEAD^ →１つ前のコミット
 ```
 
 ## リモートリポジトリのマージ
