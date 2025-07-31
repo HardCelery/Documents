@@ -24,12 +24,18 @@ docker ps -a
 
 コンテナ操作
 ```
-# コンテナ起動、ログイン
+# コンテナ起動、ログイン（新規）
 docker run -it labc_v2
 
-# コンテナ再起動
+# バックグラウンド起動
+docker run -d labc_v2
+
+# コンテナ起動,再起動
 docker start labc_v2
 
 # コンテナ削除
 docker rm labc_v2
+
+# 起動中のコンテナのbashを起動
+docker exec -it container bash
 ```
