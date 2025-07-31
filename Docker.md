@@ -9,18 +9,27 @@
 
 ![alt text](Dockerimage.png)
 
-dockerイメージ一覧
+<br>
+
+情報取得
 ```
+# dockerイメージ一覧
 docker images
+
+# dockerコンテナ一覧
+docker ps -a
 ```
 
-dockerイメージの起動
-```docker
+<br>
+
+コンテナ操作
+```
+# コンテナ起動、ログイン
 docker run -it labc_v2
-```
 
-dockerコンテナ一覧
-```
-docker ps
-```
+# コンテナ再起動
+docker start labc_v2
 
+# コンテナ削除
+docker rm labc_v2
+```
