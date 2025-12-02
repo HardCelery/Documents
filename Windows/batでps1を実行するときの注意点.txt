@@ -1,0 +1,6 @@
+batとps1では対応文字コードの違いから日本語の文字化けによるエラーが起きる
+
+bat：ShiftJIS
+ps1：UTF-8 with BOM
+
+これで解決

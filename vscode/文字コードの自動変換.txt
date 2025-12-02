@@ -1,0 +1,7 @@
+settings.json
+{
+    "files.autoGuessEncoding": true
+}
+
+この設定で表示するファイルの文字コードを自動で設定して表示してくれる
+すべてうまくいくとは限らない

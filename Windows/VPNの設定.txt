@@ -1,0 +1,4 @@
+以下二つのサービスが無効だとVPN接続が正常に行われない
+・IKE and AuthIP IPsec Keying Modules
+
+・IPsec Policy Agent

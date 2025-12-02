@@ -1,0 +1,4 @@
+windowsの設定アプリを開いても何も表示されずに落ちてしまうバグ
+
+以下のレジストリを削除して再起動したら復旧した
+HKCU\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell

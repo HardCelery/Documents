@@ -1,0 +1,12 @@
+
+以下のレジストリを変更
+
+パス：HKEY_CLASSES_ROOT\batfile\shell\edit\command
+名前：(既定)
+種類：REG_EXPAND_SZ
+データ："C:\Program Files (x86)\sakura\sakura.exe" "%1"
+
+上記の場合サクラエディタに変更
+
+なお、サクラエディタをデフォルトのインストール先Program Files（x86）から
+変更すると正常に動作しない。
