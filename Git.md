@@ -19,13 +19,13 @@ Gitはファイルの変更履歴を管理する仕組み
 
 ## 基本的な流れ
 
-作業ディレクトリ （F:\Projects\Project01）
+作業ディレクトリ （F:\Projects\Project01）でgit管理したいドキュメントやコードを編集
 ↓
-ステージングエリア（git add）
+ステージングエリア（git add）に移行
 ↓
-ローカルリポジトリ（git commit）
+ローカルリポジトリ（git commit）に移行
 ↓
-リモートリポジトリ（git push）
+リモートリポジトリ（git push）に移行
 という流れで変更を記録。
 
 
@@ -33,8 +33,10 @@ Gitはファイルの変更履歴を管理する仕組み
 
 
 ## リモートリポジトリとの連携
-### ssh接続の設定
-ホームディレクトリに.sshを作成し、鍵の作成
+ここではGithubをリモートリポジトリとしてGithubに格納する方法を説明する。
+
+### ssh接続の設定（編集中）
+ローカルデバイスのホームディレクトリ（C:\users\user\）に.sshを作成し、鍵の作成
 ```
 ssh-keygen -t rsa -f github
 ```
@@ -73,15 +75,16 @@ git config --global user.email 'user@gmail.com' # user@gmail.comにはGitHubに�
 
 ## 基本コマンド
 **gitリポジトリの作成**
+ローカルのgitリポジトリを履歴管理したいコードやドキュメントを格納するフォルダ上に設定する
 ```git
 cd /d F:\Projects\Projectxx
 git init
 ```
-基本的にプロジェクトごとに用意する
 
 <br>
 
 **ステージング、コミット**
+コードやドキュメントの編集したら保存する
 リポジトリに反映（保存）
 ```git
 git add ファイル名（or フォルダ名）
@@ -210,3 +213,11 @@ git checkout -b feature origin/feature
 ```
 `-b`は「新しいブランチを作成する」
 `checkout`で自動切り替え
+
+<br>
+
+# 改訂履歴
+| 日付 | 内容 |
+| ---  | --- |
+| 2025年6月26日 | ドキュメントの作成 |
+| 2025年12月1日 | 流れを編集、SSHを編集中 |
