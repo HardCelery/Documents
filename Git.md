@@ -1,11 +1,12 @@
 # Gitの使い方
+
 Gitはファイルの変更履歴を管理する仕組み
 リポジトリという容器にファイルを格納しバージョン管理を行う
 
 <br>
 
-
 ## 基本用語
+
 ①リポジトリ
 ・ローカルリポジトリ：ローカル端末にあるリポジトリ
 ・リモートリポジトリ：githubなどのインターネット上のリポジトリ
@@ -28,29 +29,34 @@ Gitはファイルの変更履歴を管理する仕組み
 リモートリポジトリ（git push）に移行
 という流れで変更を記録。
 
-
 <br>
 
-
 ## リモートリポジトリとの連携
+
 ここではGithubをリモートリポジトリとしてGithubに格納する方法を説明する。
 
 ### ssh接続の設定（編集中）
+
 ローカルデバイスのホームディレクトリ（C:\users\user\）に.sshを作成し、鍵の作成
+
 ```
 ssh-keygen -t rsa -f github
 ```
+
 `-t`で作成方式、`-f`でファイル名を指定
 
 ssh鍵のファイル名をデフォルトから変更した場合、.ssh/configを作成し、記録
 ＊デフォルトだと読みに行くファイル名が違うため
+
 ```
 Host github github.com
   HostName github.com
   IdentityFile ~/.ssh/id_git_rsa #ここに自分の鍵のファイル名
   User git
 ```
+
 公開鍵をgithubに登録してssh接続確認
+
 ```
 ssh -T github
 ```
@@ -60,22 +66,22 @@ ssh -T github
 ## 初期設定
 
 ローカルのGitにGitHubのユーザーとメールアドレスを設定
+
 ```
 git config --global user.name 'user_name' # user_nameにはGitHubに登録したuser nameを入力
 
 git config --global user.email 'user@gmail.com' # user@gmail.comにはGitHubに登録したメールアドレス
 ```
+
 ホームディレクトリ直下の.gitconfigに記録される
 
 <br>
 
-
-
-<br>
-
 ## 基本コマンド
+
 **gitリポジトリの作成**
 ローカルのgitリポジトリを履歴管理したいコードやドキュメントを格納するフォルダ上に設定する
+
 ```git
 cd /d F:\Projects\Projectxx
 git init
@@ -86,67 +92,80 @@ git init
 **ステージング、コミット**
 コードやドキュメントの編集したら保存する
 リポジトリに反映（保存）
+
 ```git
 git add ファイル名（or フォルダ名）
 git add .　（カレントディレクトリの全て）
 
 git commit -m "コメント"
 ```
+
 <br>
 
 リモートリポジトリの設定
 git initごとにリモートリポジトリを設定する
+
 ```git
 git remote add origin git@github.com:[github_username]/[remoterepositoryname].git
 ```
+
 originというショートカットにリモートリポジトリのURLを登録
 
 <br>
 
 **リモートリポジトリにpush**
 pushするブランチを指定してoriginにpush
+
 ```
 git push -u origin main
 ```
 
-
 ---
 
 ## ブランチについて
+
 ブランチとは違うバタフライエフェクトの異なる世界線のイメージ
 メインブランチ、開発ブランチ、修正ブランチなど世界線を分けることでメインに影響することなく機能回収やバグフィックスを行うのが目的
 世界線を合成することをマージという
 
 **ブランチ作成**
+
 ```
 git branch new_branch
 git branch -a  #ブランチ確認
 ```
 
 **ブランチ削除**
+
 ```
 git branch -d new_branch
 ```
 
 **ブランチ切り替え**
+
 ```
 git checkout new_branch
 ```
 
 **ブランチ名変更**
-``` 
+
+```
 git branch -m master main
 ```
 
-
 **マージ**
+
 ```
 git checkout main
 git merge new_branch
 ```
 
+<br>
+
 ## 修正
+
 gitのリセットは.gitフォルダを削除すればよい
+
 ```
 rm -rf .git
 ```
@@ -154,6 +173,7 @@ rm -rf .git
 <br>
 
 ステージングの取り消し（addの取り消し）
+
 ```
 git reset
 ```
@@ -161,21 +181,24 @@ git reset
 <br>
 
 ファイル単体を１つ前のコミット状態に戻したいとき
+
 ```git
 git checkout HEAD^ file.txt
 # HEAD^ →１つ前のコミット
 ```
 
 ## リモートリポジトリのマージ
+
 リモートリポジトリ（Github）のマージにはpull requestが必要
 pull requestを確認することでリモートリポジトリ上のマージが行える。
- 
 
 ## Git作業フロー
+
 developブランチで開発を行い、mainブランチにマージするのが基本
 それぞれのブランチもGithubにpushする。
 mainにマージする前、developで開発を始める前にpullで最新状態にする
 必ずmain以外をコミットしてからpull requestでマージしましょう
+
 ```git
 # 通常作業
 git checkout develop
@@ -194,32 +217,41 @@ git checkout develop
 git merge main
 git push -u origin develop
 ```
+
 <br>
 
 ## 別端末からリモートリポジトリに接続
+
 ### リポジトリをクローン
+
 ```git
 git clone git@github.com:xxxx/xxxx.git
 ```
+
 これを実行するとgithub上のデフォルトのブランチがクローンされる。
 
 ### リモートリポジトリをpull
+
 リモートリポジトリから最新情報を取得する
+
 ```
 git pull origin main # リモートリポジトリのmainからpull
 ```
 
 ### featureブランチを作成、クローンし切り替える
+
 ```git
 git checkout -b feature origin/feature
 ```
+
 `-b`は「新しいブランチを作成する」
 `checkout`で自動切り替え
 
 <br>
 
 # 改訂履歴
-| 日付 | 内容 |
-| ---  | --- |
-| 2025年6月26日 | ドキュメントの作成 |
+
+| 日付          | 内容                    |
+| ------------- | ----------------------- |
+| 2025年6月26日 | ドキュメントの作成      |
 | 2025年12月1日 | 流れを編集、SSHを編集中 |
